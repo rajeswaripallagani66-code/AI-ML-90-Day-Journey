@@ -1,0 +1,30 @@
+name: Day 5 - ML API CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build Docker image
+      run: |
+        cd 01-basics
+        docker build -t ml-api:test .
+
+    - name: Test API runs
+      run: |
+        docker run -d -p 8000:8000 --name test-api ml-api:test
+        sleep 10
+        curl --fail http://127.0.0.1:8000/
+        docker stop test-api
+
+    - name: Success
+      run: echo "Day 5 CI Passed - Docker build + API test OK!"
