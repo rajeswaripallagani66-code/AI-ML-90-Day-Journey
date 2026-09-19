@@ -43,6 +43,8 @@ if st.button("Generate Grade Report"):
                 c2.metric("Average", data['average'])
                 c3.metric("Grade", data['grade'])
                 st.json(data)
+                st.balloons()
+                st.toast("Prediction Done!", icon="🎉")
             else:
                 st.error(f"Error {res.status_code}: {res.text}")
     except Exception as e:
