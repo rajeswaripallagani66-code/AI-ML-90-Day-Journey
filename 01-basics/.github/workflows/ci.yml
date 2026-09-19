@@ -27,4 +27,4 @@ jobs:
         docker stop test-api
 
     - name: Success
-      run: echo "Day 5 CI Passed - Docker build + API test OK!"
+      run: echo "Day 5 CI Passed - Docker build + API test OK!"latest

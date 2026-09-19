@@ -1,0 +1,5 @@
+Name: raji | Roll: 1 | Total: 454 | Avg: 90.80 | Grade: A
+Name: nani | Roll: 2 | Total: 474 | Avg: 94.80 | Grade: A
+Name: syashu | Roll: 3 | Total: 487 | Avg: 97.40 | Grade: A
+
+Class Topper: syashu with 97.40%

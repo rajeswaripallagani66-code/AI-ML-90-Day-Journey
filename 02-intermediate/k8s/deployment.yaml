@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-report-card
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-report-card
+  template:
+    metadata:
+      labels:
+        app: student-report-card
+    spec:
+      containers:
+            - name: student-report-card
+        image: ${ECR_REGISTRY}/student-report-card:latest
+        ports:
+                - containerPort: 8000
+          name: fastapi
+                - containerPort: 8501
+          name: streamlit
