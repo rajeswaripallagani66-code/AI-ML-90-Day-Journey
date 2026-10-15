@@ -1,3 +1,4 @@
+import os
 import onnxruntime as ort
 import torchvision.transforms as transforms
 from PIL import Image
@@ -6,12 +7,12 @@ import io
 
 app = FastAPI(title="Resnet18 ONNX Live")
 
-try:
-    sess = ort.InferenceSession("resnet18.onnx", providers=["CPUExecutionProvider"])
-    print("ONNX Loaded")
-except:
-    sess = ort.InferenceSession("03-advanced/app/resnet18.onnx", providers=["CPUExecutionProvider"])
-    print("ONNX Loaded")
+# Fix path for both local and Docker
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "resnet18.onnx")
+
+sess = ort.InferenceSession(MODEL_PATH, providers=["CPUExecutionProvider"])
+print(f"ONNX Loaded from {MODEL_PATH}")
 
 preprocess = transforms.Compose([
     transforms.Resize(256),
