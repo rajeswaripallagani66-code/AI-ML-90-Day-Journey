@@ -1,41 +1,36 @@
-import os
-import onnxruntime as ort
-import torchvision.transforms as transforms
-from PIL import Image
-from fastapi import FastAPI, UploadFile
-import io
+from fastapi import FastAPI, Request, Response
+from prometheus_client import Counter, Histogram, CONTENT_TYPE_LATEST, generate_latest
+import time
 
-app = FastAPI(title="Resnet18 ONNX Live")
+print("Starting ml-api v2-metrics NO-ONNX", flush=True)
 
-# Fix path for both local and Docker
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "resnet18.onnx")
+app = FastAPI()
 
-sess = ort.InferenceSession(MODEL_PATH, providers=["CPUExecutionProvider"])
-print(f"ONNX Loaded from {MODEL_PATH}")
+REQUEST_COUNT = Counter('http_requests_total', 'Total', ['method','endpoint','status'])
+REQUEST_LATENCY = Histogram('http_request_duration_seconds', 'Latency', ['endpoint'])
 
-preprocess = transforms.Compose([
-    transforms.Resize(256),
-    transforms.CenterCrop(224),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-])
-
-import json, urllib.request
-CLASSES = json.loads(urllib.request.urlopen("https://raw.githubusercontent.com/anishathalye/imagenet-simple-labels/master/imagenet-simple-labels.json").read())
+@app.middleware("http")
+async def metrics_middleware(request: Request, call_next):
+    start=time.time()
+    resp=await call_next(request)
+    REQUEST_COUNT.labels(request.method, request.url.path, str(resp.status_code)).inc()
+    REQUEST_LATENCY.labels(request.url.path).observe(time.time()-start)
+    return resp
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
-
+    return {"status":"ok"}
+@app.get("/")
+def root():
+    return {"msg":"ml-api v2-metrics running"}
+@app.get("/metrics")
+def metrics():
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 @app.post("/predict")
-async def predict(file: UploadFile):
-    img = Image.open(io.BytesIO(await file.read())).convert("RGB")
-    tensor = preprocess(img).unsqueeze(0).numpy()
-    outputs = sess.run(None, {"input": tensor})
-    pred_id = int(outputs[0].argmax())
-    return {"prediction": CLASSES[pred_id] if pred_id < len(CLASSES) else f"class_{pred_id}", "class_id": pred_id}
+def predict(data: dict):
+    return {"prediction":"ok"}
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
