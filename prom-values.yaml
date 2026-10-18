@@ -1,0 +1,18 @@
+grafana:
+  adminPassword: admin123
+prometheus:
+  prometheusSpec:
+    scrapeInterval: 30s
+    retention: 2h
+    storageSpec: {}
+alertmanager:
+  enabled: false
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+  tls:
+    enabled: false
+admissionWebhooks:
+  enabled: false
+  patch:
+    enabled: false
