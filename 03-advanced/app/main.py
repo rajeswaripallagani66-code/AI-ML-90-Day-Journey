@@ -20,17 +20,19 @@ async def metrics_middleware(request: Request, call_next):
 @app.get("/health")
 def health():
     return {"status":"ok"}
+
 @app.get("/")
 def root():
     return {"msg":"ml-api v2-metrics running"}
+
 @app.get("/metrics")
 def metrics():
     return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
+
 @app.post("/predict")
 def predict(data: dict):
-    return {"prediction":"ok"}
+    return {"prediction": "ok", "input": data}
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
-
