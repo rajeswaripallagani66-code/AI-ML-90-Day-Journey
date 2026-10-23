@@ -1,10 +1,5 @@
-.terraform/
-*.tfstate
-*.tfstate.backup
-.terraform.lock.hcl
-__pycache__/
-*.onnx
-*.onnx.data
-venv/
-.vscode/
-report.txt
+__pycache__
+*.pyc
+*.pyo
+.git
+proof.png.jpg
