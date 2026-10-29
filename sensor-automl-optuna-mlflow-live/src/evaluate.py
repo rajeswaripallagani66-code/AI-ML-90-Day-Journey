@@ -1,14 +1,9 @@
-import os
-os.environ["MLFLOW_ALLOW_FILE_STORE"] = "true"
 import mlflow
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
-
-import pandas as pd, joblib
-from sklearn.metrics import accuracy_score
-
-model = joblib.load("models/model.pkl")
-df = pd.read_csv("data/processed/features.csv")
-acc = accuracy_score(df["label"], model.predict(df.drop("label", axis=1)))
-print(f"Final Eval Accuracy: {acc:.4f}")
-with mlflow.start_run():
-    mlflow.log_metric("final_accuracy", acc)
+from mlflow.tracking import MlflowClient
+client = MlflowClient()
+exp = client.get_experiment_by_name("sensor-day1")
+runs = client.search_runs(exp.experiment_id, order_by=["metrics.f1 DESC"])
+print(f"Total runs: {len(runs)}")
+for r in runs[:5]:
+    print(f"F1: {r.data.metrics['f1']:.4f} - {r.data.params}")
