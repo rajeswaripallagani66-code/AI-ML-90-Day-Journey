@@ -10,3 +10,6 @@ numpy
 imbalanced-learn
 prometheus_client
 evidently
+lightgbm
+xgboost
+joblib
