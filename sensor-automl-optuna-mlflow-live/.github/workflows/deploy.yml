@@ -6,23 +6,23 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4
-        - uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
-        - run: pip install -r requirements.txt
-        - run: pytest -q || echo "no tests yet"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install -r requirements.txt
+      - run: pytest -q || echo "no tests yet"
   build:
     needs: test
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4
-        - name: Build Docker
-          run: docker build -t sensor-automl:${{ github.sha }} .
+      - uses: actions/checkout@v4
+      - name: Build Docker
+        run: docker build -t sensor-automl:${{ github.sha }} .
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4
-        - name: Deploy to HF Spaces (placeholder)
-          run: echo "Deploy step - add HF token later"
+      - uses: actions/checkout@v4
+      - name: Deploy to HF Spaces (placeholder)
+        run: echo "Deploy step - add HF token later"
