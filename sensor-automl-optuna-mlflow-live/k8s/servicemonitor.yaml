@@ -1,0 +1,12 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: sensor-automl-monitor
+spec:
+  selector:
+    matchLabels:
+      app: sensor-automl
+  endpoints:
+    - port: http
+    interval: 30s
+    path: /metrics
