@@ -1,0 +1,18 @@
+{
+  "best_model": "lgbm",
+  "f1": 0.9526780617433521,
+  "best_iteration": 102,
+  "features": [
+    "rms",
+    "peak",
+    "crest",
+    "kurtosis",
+    "skew",
+    "mean",
+    "std",
+    "max",
+    "min",
+    "peak_to_peak",
+    "fft_max"
+  ]
+}
