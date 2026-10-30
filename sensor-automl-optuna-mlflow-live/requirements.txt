@@ -4,6 +4,9 @@ pydantic
 pandas
 scikit-learn
 catboost
-mlflow==3.17.2
+mlflow
 optuna
 numpy
+imbalanced-learn
+prometheus_client
+evidently
