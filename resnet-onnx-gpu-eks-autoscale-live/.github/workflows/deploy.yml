@@ -1,0 +1,13 @@
+name: deploy
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+        - name: Test
+          run: pip install -r requirements.txt && pytest
+        - name: Build Docker
+          run: docker build -t p1 .
+        - name: Deploy HF
+          run: echo "Deploy step - HF Spaces auto-deploy via push"
