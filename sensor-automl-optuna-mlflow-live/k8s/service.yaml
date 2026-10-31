@@ -7,5 +7,5 @@ spec:
     app: sensor-automl
   ports:
     - port: 80
-    targetPort: 8000
+      targetPort: 8000
   type: LoadBalancer

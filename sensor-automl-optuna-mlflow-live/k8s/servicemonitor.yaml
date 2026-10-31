@@ -8,5 +8,5 @@ spec:
       app: sensor-automl
   endpoints:
     - port: http
-    interval: 30s
-    path: /metrics
+      interval: 30s
+      path: /metrics

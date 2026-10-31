@@ -14,23 +14,23 @@ spec:
     spec:
       containers:
             - name: sensor-automl
-        image: rajeswari/sensor-automl:latest
-        ports:
+              image: rajeswari/sensor-automl:latest
+              ports:
                 - containerPort: 8000
-        resources:
-          requests:
-            cpu: "250m"
-            memory: "512Mi"
-          limits:
-            cpu: "1"
-            memory: "1Gi"
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8000
-          initialDelaySeconds: 10
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8000
-          initialDelaySeconds: 30
+              resources:
+              requests:
+              cpu: "250m"
+              memory: "512Mi"
+              limits:
+              cpu: "1"
+              memory: "1Gi"
+              readinessProbe:
+              httpGet:
+              path: /health
+              port: 8000
+              initialDelaySeconds: 10
+              livenessProbe:
+              httpGet:
+              path: /health
+              port: 8000
+              initialDelaySeconds: 30
