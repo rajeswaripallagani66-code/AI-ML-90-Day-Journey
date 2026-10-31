@@ -21,3 +21,35 @@ Sensor Data → Feature Engineering (11 features) → LightGBM (0.95 F1) → Fas
 ```bash
 pip install -r requirements.txt
 uvicorn app.main:app --reload
+
+Here is P2 full flow :
+
+Data Source (CSV/Mongo)
+      |
+      v
+ingestion.py -> Saves raw.csv
+      |
+      v
+drift.py -> [Checks: Is data changed?]
+      |
+      v
+validation.py -> [Checks: Is data correct?]
+      |
+      v
+features.py -> Cleans data -> Saves train.csv / test.csv + preprocessor.pkl
+      |
+      v
+train.py -> Trains model -> Saves model.pkl
+      |
+      v
+evaluate.py -> Checks accuracy, F1 score
+      |
+      v
+register.py -> Pushes best model to registry (S3/Mongo)
+      |
+      v
+app.py (FastAPI) -> Uses that model for prediction
+
+And everything runs together using:
+docker-compose.yml -> Starts API + MongoDB + App in one command
+After deployment, drift.py runs daily on live data as monitoring.
