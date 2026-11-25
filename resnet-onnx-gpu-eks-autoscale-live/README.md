@@ -1,7 +1,10 @@
 ﻿# P1: ResNet18 Production - EKS-Ready | INT8 Optimized
 
-![CI](https://github.com/rajeswaripallagani66-code/AI-ML-90-Day-Journey/actions/workflows/ci.yml/badge.svg)
-![Deploy](https://github.com/rajeswaripallagani66-code/AI-ML-90-Day-Journey/actions/workflows/deploy.yml/badge.svg)
+[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110-green)](https://fastapi.tiangolo.com/)
+[![ONNX](https://img.shields.io/badge/ONNX-Runtime-orange)](https://onnxruntime.ai/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)
+[![EKS](https://img.shields.io/badge/EKS-Deployed-yellow)](https://aws.amazon.com/eks/)
 [![Live API](https://img.shields.io/badge/Live%20API-HF%20Spaces-blue)](https://huggingface.co/spaces/YOUR_USERNAME/resnet-prod)
 ![ONNX](https://img.shields.io/badge/Model-INT8%2011.7MB-green)
 
