@@ -8,7 +8,7 @@
 > **One-line Architecture:** FastAPI (ONNX Runtime INT8) + Prometheus Metrics + Docker + Kubernetes HPA (2-10 pods) + Terraform EKS + GitHub Actions CI/CD + k6 Load Tested
 
 ## 🚀 Live Demo
-- **API Docs:** `https://YOUR_HF_SPACE.hf.space/docs` (Replace after deploy)
+-Live Demo: EKS deployment verified - screenshots below. HF Spaces deployment in progress.
 - **Health:** `/health` | **Metrics:** `/metrics` | **Predict:** `/predict`
 
 ## 📊 Production Metrics (Verified - Final Run)
