@@ -1,6 +1,15 @@
 from fastapi import FastAPI, Request, Response
 from prometheus_client import Counter, Histogram, CONTENT_TYPE_LATEST, generate_latest
 import time, os, numpy as np, onnxruntime as ort
+import urllib.request
+
+# Load ImageNet labels
+try:
+    url = "https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt"
+    with urllib.request.urlopen(url) as f:
+        IMAGENET_CLASSES = [line.decode().strip() for line in f.readlines()]
+except:
+    IMAGENET_CLASSES = [f"class_{i}" for i in range(1000)]
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "resnet18.onnx")
 print(f"Loading model: {MODEL_PATH}", flush=True)
@@ -34,7 +43,9 @@ def metrics(): return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST
 def predict():
     dummy = np.random.randn(1,3,224,224).astype(np.float32)
     out = sess.run(None, {input_name: dummy})[0]
-    return {"prediction": int(np.argmax(out)), "model": MODEL_PATH}
+    pred_id = int(np.argmax(out))
+    pred_name = IMAGENET_CLASSES[pred_id] if pred_id < len(IMAGENET_CLASSES) else "unknown"
+    return {"prediction": f"{pred_id} - {pred_name}", "model": MODEL_PATH}
 
 if __name__ == "__main__":
     import uvicorn; uvicorn.run(app, host="0.0.0.0", port=8000)
