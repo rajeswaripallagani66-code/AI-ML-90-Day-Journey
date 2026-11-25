@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request, Response
 from prometheus_client import Counter, Histogram, CONTENT_TYPE_LATEST, generate_latest
 import time, os, numpy as np, onnxruntime as ort
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "resnet18_int8.onnx")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "resnet18.onnx")
 print(f"Loading model: {MODEL_PATH}", flush=True)
 
 sess = ort.InferenceSession(MODEL_PATH, providers=['CPUExecutionProvider'])
