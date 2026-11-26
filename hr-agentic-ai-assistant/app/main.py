@@ -2,6 +2,7 @@ import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 from google import genai
+from fastapi.responses import HTMLResponse
 
 # NEW Library - Works with AQ. keys
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
@@ -53,3 +54,8 @@ def chat(req: ChatRequest):
 @app.get("/")
 def home():
     return {"message": "HR Assistant Running"}
+
+@app.get("/", response_class=HTMLResponse)
+def home():
+    with open("templates/index.html") as f:
+        return f.read()
