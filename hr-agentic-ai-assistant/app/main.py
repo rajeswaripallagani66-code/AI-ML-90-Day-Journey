@@ -106,7 +106,12 @@ async def home():
 @app.post("/chat")
 async def chat(req: ChatRequest):
     answer = agent_answer(req.message, req.user_id)
-    return {"answer": answer, "source": "hr_policy.txt + Live DB"}
+    return {
+        "answer": answer,
+        "response": answer,   # for frontend that expects response
+        "reply": answer,
+        "source": "Policy Doc",
+    }
 
 @app.get("/health")
 async def health():
