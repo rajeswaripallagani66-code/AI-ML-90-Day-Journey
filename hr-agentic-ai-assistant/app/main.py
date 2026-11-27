@@ -6,6 +6,8 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import google.generativeai as genai
 
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__))
 from tools import get_leave_balance_tool, search_policy_tool
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")

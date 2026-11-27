@@ -1,4 +1,6 @@
 # tools.py - Agent Tools
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__))
 from rag import search_policy
 
 # Leave Balance is still in code, because txt is only for policies
