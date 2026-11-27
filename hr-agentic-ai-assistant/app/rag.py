@@ -1,23 +1,41 @@
-from sentence_transformers import SentenceTransformer
-import faiss, numpy as np
+# rag.py - RAG: Read from data.txt
+import os
 
-# Load BGE-small - FREE Local
-model = SentenceTransformer('BAAI/bge-small-en-v1.5')
+DATA_FILE = "data.txt"
 
-# Load policy text and chunk 500 / 50
-with open("hr_policy.txt", encoding="utf-8") as f:
-    text = f.read()
-
-chunks = []
-for i in range(0, len(text), 500):
-    chunks.append(text[i:i+500])
-
-embeddings = model.encode(chunks)
-index = faiss.IndexFlatL2(embeddings.shape[1])
-index.add(np.array(embeddings).astype('float32'))
+def load_data():
+    # Try common names if data.txt not found
+    for fname in ["data.txt", "hr_data.txt", "policies.txt", "policy.txt", "data"]:
+        if os.path.exists(fname):
+            with open(fname, "r", encoding="utf-8") as f:
+                return f.read()
+    return ""
 
 def search_policy(query: str):
-    q_emb = model.encode([query])
-    D, I = index.search(np.array(q_emb).astype('float32'), 3)
-    results = [chunks[i] for i in I[0]]
-    return results
+    """Retrieve relevant chunks from txt file"""
+    text = load_data()
+    if not text:
+        return []
+    
+    q = query.lower()
+    # Split txt by blank lines -> chunks
+    chunks = [c.strip() for c in text.split("\n\n") if c.strip()]
+    
+    results = []
+    for chunk in chunks:
+        chunk_lower = chunk.lower()
+        # If any important word matches
+        for word in q.split():
+            if len(word) > 3 and word in chunk_lower:
+                results.append(chunk)
+                break
+    
+    if not results:
+        # fallback: return first chunk about leave
+        for chunk in chunks:
+            if "leave" in chunk.lower():
+                results.append(chunk)
+                break
+    return results[:3]
+
+retrieve_policy = search_policy

@@ -1,5 +1,23 @@
-Leave Policy: Casual Leave 12 days, Sick Leave 12 days, Maternity Leave 26 weeks paid. Section 4.2 Page 12.
-WFH Policy: 2 days per week allowed.
-Notice Period: 60 days.
-Salary Slip: 5th of every month.
-Leave Booking: Must have balance, manager approval required.
+Casual Leave Policy:
+- Every employee gets 12 Casual Leaves per year.
+- Max 3 casual leaves can be taken at a time.
+- Casual leave cannot be carried forward.
+
+Sick Leave Policy:
+- Every employee gets 8 Sick Leaves per year.
+- Medical certificate required if more than 2 days.
+
+Earned Leave Policy:
+- Every employee gets 15 Earned Leaves per year.
+- Can be carried forward up to 30 days.
+- Apply at least 7 days before planned leave.
+
+Maternity Leave Policy:
+- 26 weeks paid maternity leave as per law.
+
+Work From Home Policy:
+- 2 days WFH per week allowed with manager approval.
+- Core hours 10 AM to 4 PM must be available online.
+
+Leave Balance:
+Casual=12, Sick=8, Earned=15
