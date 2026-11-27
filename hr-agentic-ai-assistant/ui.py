@@ -4,6 +4,8 @@ import requests
 st.set_page_config(page_title="HR Assistant", page_icon="🤖")
 st.title("🤖 HR Assistant")
 
+BACKEND_URL = "https://hr-agentic-ai-assistant.onrender.com"
+
 question = st.text_input("Ask HR question:", placeholder="What is leave policy?")
 
 if st.button("Ask", key="ask_btn"):
@@ -11,7 +13,7 @@ if st.button("Ask", key="ask_btn"):
         st.warning("Please type a question first!")
     else:
         try:
-            res = requests.post("http://127.0.0.1:8000/multi-agent", params={"question": question}, timeout=60)
+            res = requests.post(f"{BACKEND_URL}/multi-agent", params={"question": question}, timeout=60)
             if res.status_code == 200:
                 data = res.json()
                 st.success("Answer:")
@@ -26,7 +28,7 @@ if st.button("Ask with 4 Agents", key="multi_btn"):
         st.warning("Please type a question first!")
     else:
         try:
-            res = requests.post("http://127.0.0.1:8000/multi-agent", params={"question": question}, timeout=60)
+            res = requests.post(f"{BACKEND_URL}/multi-agent", params={"question": question}, timeout=60)
             if res.status_code == 200:
                 data = res.json()
                 st.subheader("🧠 Planner")
