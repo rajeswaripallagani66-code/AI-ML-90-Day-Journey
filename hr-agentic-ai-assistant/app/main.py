@@ -1,20 +1,24 @@
-# main.py - HR Agentic AI Assistant
+# app/main.py - HR Agentic AI Assistant (FINAL + Chat UI)
 import os
+import sys
+
+# Fix import: allow tools.py / rag.py in same folder
+sys.path.insert(0, os.path.dirname(__file__))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import google.generativeai as genai
 
-import sys, os
-sys.path.insert(0, os.path.dirname(__file__))
 from tools import get_leave_balance_tool, search_policy_tool
 
+# --- Gemini Setup ---
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
 
-MODELS_TO_TRY = ["gemini-3.8-flash", "gemini-2.5-flash", "gemini-3-flash"]
+MODELS_TO_TRY = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
 
 def call_gemini(prompt: str):
     last_error = None
@@ -30,6 +34,7 @@ def call_gemini(prompt: str):
             continue
     raise Exception(last_error)
 
+# --- FastAPI App ---
 app = FastAPI(title="HR Agentic AI Assistant")
 app.add_middleware(
     CORSMiddleware,
@@ -66,7 +71,7 @@ def agent_answer(message: str, user_id: str = "default"):
 
     prompt = f"""You are HR Assistant. Answer ONLY from context below. Be short and clear.
 
-Context (from Tools / RAG - data.txt):
+Context (from Tools / RAG - hr_policy.txt):
 {tool_output}
 
 User Question: {message}
@@ -76,18 +81,32 @@ Answer:"""
         return call_gemini(prompt)
     except Exception as e:
         print(f"Gemini failed: {e} - Using Fallback")
-        return f"Based on HR Policy:\n\n{tool_output}\n\n(Source: data.txt)"
+        return f"Based on HR Policy:\n\n{tool_output}\n\n(Source: hr_policy.txt)"
+
+# --- Routes ---
 
 @app.get("/")
 async def home():
-    if os.path.exists("index.html"):
-        return FileResponse("index.html")
-    return {"status": "HR Agentic AI Assistant is Live"}
+    # index.html is in templates/ folder
+    candidates = [
+        os.path.join(os.path.dirname(__file__), "..", "templates", "index.html"),  # app/../templates/index.html <- YOUR CASE
+        os.path.join(os.path.dirname(__file__), "templates", "index.html"),        # app/templates/index.html
+        "templates/index.html",
+        "app/templates/index.html",
+        "/app/templates/index.html",
+        os.path.join(os.path.dirname(__file__), "index.html"),
+        "index.html",
+    ]
+    for p in candidates:
+        if os.path.exists(p):
+            print(f"Serving index.html from: {p}")
+            return FileResponse(p)
+    return {"status": "HR Agentic AI Assistant is Live", "note": "index.html not found in templates/"}
 
 @app.post("/chat")
 async def chat(req: ChatRequest):
     answer = agent_answer(req.message, req.user_id)
-    return {"answer": answer, "source": "data.txt + Live DB"}
+    return {"answer": answer, "source": "hr_policy.txt + Live DB"}
 
 @app.get("/health")
 async def health():
