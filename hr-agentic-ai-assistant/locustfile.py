@@ -1,5 +1,11 @@
-from locust import HttpUser, task
+from locust import HttpUser, task, between
+
 class HRUser(HttpUser):
+    wait_time = between(1, 3)
+
     @task
-    def chat(self):
-        self.client.post("/chat", json={"message": "What is leave policy?", "user_id": "test"})
+    def ask_hr_multi_agent(self):
+        self.client.post(
+            "/multi-agent",
+            params={"question": "What is leave policy?"}
+        )
