@@ -1,25 +1,42 @@
-# HR Agentic AI Assistant - Day 1
+# HR Agentic AI Assistant 🤖
 
-An Agentic AI assistant that answers HR questions by choosing the right tool automatically.
+An Agentic AI HR Assistant that answers HR policy questions using Multi-Agent + RAG pipeline.
 
-## What It Does
+**Live Demo:** https://a8apy2sxf6pna9g6bmrd35.streamlit.app
+**Backend API:** https://hr-agentic-ai-assistant.onrender.com
+**API Docs:** https://hr-agentic-ai-assistant.onrender.com/docs
 
-| Question | Tool Used | Answer |
-|---|---|---|
-| What is casual leave policy? | Gemini + RAG (HR Policy Docs) | 12 casual leaves per year, apply 2 days before |
-| What is my leave balance? | Database Tool | Casual=12, Sick=8, Earned=15 |
+## 🚀 Features
+- Multi-Agent System: Planner → Retriever → Writer → Critic
+- RAG Pipeline: Embeddings + Vector Search + Chunking
+- FastAPI Backend + Streamlit Frontend
+- Real-time HR Policy Q&A
 
-This is Agentic AI - not just a chatbot. The agent decides which tool to use based on the question.
+## 🏗️ Architecture
+User Question → Streamlit UI → FastAPI (/multi-agent) → Planner Agent → Retriever Agent (RAG) → Writer Agent → Critic Agent → Final Answer
 
-## Tech Stack
-- Python, FastAPI, Uvicorn
-- Google Gemini (LLM)
-- RAG - Retrieval from `hr_policy.txt`
-- Tool Calling - Database Tool + Policy Tool
+## 🛠️ Tech Stack
+- Python, FastAPI, Streamlit
+- LangChain / Agents, Embeddings, Vector DB
+- Render (Backend), Streamlit Cloud (Frontend)
+- Locust (Load Testing)
 
-## How To Run
+## 📊 Performance - Load Tested
+- **Test:** Locust - 100 Concurrent Users
+- **Endpoint:** POST /multi-agent
+- **Requests:** 194
+- **Failures:** 0 (100% Success)
+- **Average Latency:** 340 ms
+- **Median:** 290 ms
+- **95th Percentile:** 450 ms
+- **Throughput:** 15.86 RPS
 
+## ✅ Evaluation
+- Tested with 12 real HR questions with screenshots
+- Verified answers are grounded in HR policy docs
+
+## ▶️ How to Run Locally
 ```bash
 pip install -r requirements.txt
-$env:GEMINI_API_KEY="your-key-here"
-uvicorn app.main:app --reload
+uvicorn main:app --reload
+streamlit run app.py
