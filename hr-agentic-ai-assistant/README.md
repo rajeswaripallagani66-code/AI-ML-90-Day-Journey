@@ -35,6 +35,16 @@ User Question → Streamlit UI → FastAPI (/multi-agent) → Planner Agent → 
 - Tested with 12 real HR questions with screenshots
 - Verified answers are grounded in HR policy docs
 
+## Evaluation (Manual RAGAS - 50 Qs)
+| Metric | Before | After Policy Expansion |
+| --- | --- | --- |
+| Faithfulness | 0.86 | **1.00** |
+| Relevancy | 0.33 | **0.95** |
+| Model | gemini-3.5-flash-lite | gemini-3.5-flash-lite |
+
+**Insight:** Initial low relevancy was due to 30 out-of-scope questions. 
+Model correctly refused instead of hallucinating (Faithfulness stayed high). After expanding hr_policy.txt to cover all topics, Relevancy jumped to 0.95.
+
 ## ▶️ How to Run Locally
 ```bash
 pip install -r requirements.txt

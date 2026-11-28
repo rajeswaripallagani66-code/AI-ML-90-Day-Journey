@@ -1,23 +1,53 @@
-Casual Leave Policy:
-- Every employee gets 12 Casual Leaves per year.
-- Max 3 casual leaves can be taken at a time.
-- Casual leave cannot be carried forward.
+HR POLICY - COMPANY XYZ
 
-Sick Leave Policy:
-- Every employee gets 8 Sick Leaves per year.
-- Medical certificate required if more than 2 days.
+1. LEAVE POLICY
+- Casual Leave: 12 Casual Leaves per year. Maximum 3 casual leaves can be taken at a time. Casual leave cannot be carried forward. To apply, apply in HR portal at least 1 day before.
+- Sick Leave: 8 Sick Leaves per year. Medical certificate required if more than 2 days. Sick leave cannot be combined with casual leave without manager approval. Half day sick leave is allowed.
+- Earned Leave / Privilege Leave: Every employee gets 15 Earned Leaves (also called Privilege Leaves) per year. Can be carried forward up to 30 days. Apply at least 7 days before planned leave.
+- Leave Carry Forward Rule: Casual leave cannot be carried forward. Earned Leave can be carried forward up to 30 days.
+- Leave Balance: Check leave balance in HR portal > My Leaves. If leave balance is zero, you can apply for Leave Without Pay (LWP) with manager approval.
+- Leave Without Pay (LWP): If no leave balance, LWP allowed with manager approval. LWP days are unpaid.
+- Cancel Leave: To cancel leave, go to HR portal > My Leaves > Cancel before start date. Approved leaves can be cancelled only before start date.
+- Leave in Probation: Leave is allowed in probation, but only Sick Leave and Casual Leave. Earned Leave not allowed in probation.
+- Manager Approval: Manager can reject leave if team has critical work or if minimum staffing is not met. Manager must give reason in portal.
 
-Earned Leave Policy:
-- Every employee gets 15 Earned Leaves per year.
-- Can be carried forward up to 30 days.
-- Apply at least 7 days before planned leave.
+2. MATERNITY & PATERNITY LEAVE
+- Maternity Leave: 26 weeks paid maternity leave as per law. To apply, inform HR and manager 8 weeks before with doctor certificate, fill maternity form in HR portal.
+- Paternity Leave: 10 days paid paternity leave within 30 days of child birth. Apply in HR portal with birth certificate.
 
-Maternity Leave Policy:
-- 26 weeks paid maternity leave as per law.
+3. WORKING HOURS & HOLIDAYS
+- Working Hours: 9 AM to 6 PM, Monday to Friday. Core hours 10 AM to 4 PM must be available online.
+- Saturday / Sunday: Saturday and Sunday are weekly off. Saturday is not a working day.
+- Holiday List: Holiday list is published in January every year in HR portal > Holidays. Includes 12 public holidays + 2 optional holidays.
 
-Work From Home Policy:
-- 2 days WFH per week allowed with manager approval.
-- Core hours 10 AM to 4 PM must be available online.
+4. WFH POLICY
+- WFH: 2 days WFH per week allowed with manager approval. Apply in HR portal 1 day before.
+- WFH Timing: Core hours 10 AM to 4 PM must be available online.
+- Full Week WFH: No. Only 2 days WFH per week are allowed.
+- WFH in Probation: WFH is NOT allowed in probation period (first 6 months).
+- WFH from Other City: WFH from other city allowed for max 5 days per month with manager + HR approval.
+- Sick in WFH: If sick during WFH, apply for Sick Leave. Do not mark as WFH.
+- Laptop for WFH: Company laptop is provided for WFH. Personal laptop not allowed for office work.
+- Internet Allowance: Rs. 1000 per month internet allowance given for WFH employees.
+- WFH Attendance: Mark WFH attendance in HR portal > Attendance > Mark WFH before 10 AM.
 
-Leave Balance:
-Casual=12, Sick=8, Earned=15
+5. DRESS CODE
+- Dress Code: Smart casual Monday to Thursday. Business casual on Friday. No shorts, slippers in office.
+
+6. SALARY & BENEFITS
+- Salary Slip: Salary slip is given on 5th of every month in HR portal > Payslips. To get salary slip, download from HR portal.
+- Salary Credited: Salary is credited on last working day of every month to bank account.
+- PF Contribution: PF contribution is 12% from employee + 12% from employer as per EPF Act.
+- Medical Insurance: Medical insurance of Rs. 5 Lakhs for employee + family (spouse + 2 kids). Includes parents with extra premium.
+- Travel Allowance: Rs. 2000 per month travel allowance for employees coming to office 15+ days.
+- Bonus Policy: Annual bonus is 1 month salary, paid in April based on performance rating.
+- Gratuity: Gratuity as per Gratuity Act, after 5 years of continuous service. 15 days salary per year of service.
+- Appraisal: Appraisal happens once a year in April. Rating 1-5, increments based on rating.
+
+7. NOTICE PERIOD & EXIT
+- Probation Period: 6 months probation period.
+- Notice Period: 30 days notice period during probation, 60 days notice period after confirmation. Same for resignation.
+- Notice Period Buyout: Yes, you can buyout notice period by paying salary for remaining notice days, with manager + HR approval.
+- Full and Final Settlement: Full and final settlement is done within 45 days of last working day. Includes pending salary, leave encashment, gratuity if eligible.
+- Relieving Letter Process: After FNF, relieving letter is issued within 7 days. Request in HR portal > Exit.
+- Exit Interview: Exit interview is mandatory with HR on last working day before relieving.

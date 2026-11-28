@@ -5,3 +5,10 @@ google-generativeai
 python-multipart
 langgraph==0.2.0
 langchain-core==0.2.35
+streamlit
+groq
+langchain-groq
+langchain-google-genai
+ragas
+datasets
+python-dotenv

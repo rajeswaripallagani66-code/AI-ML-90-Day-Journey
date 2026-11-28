@@ -1,0 +1,202 @@
+[
+  {
+    "question": "What is maternity leave policy?",
+    "ground_truth": "26 weeks paid maternity leave, Section 4.2"
+  },
+  {
+    "question": "What is casual leave per year?",
+    "ground_truth": "12 days casual leave per year"
+  },
+  {
+    "question": "What is sick leave per year?",
+    "ground_truth": "12 days sick leave per year"
+  },
+  {
+    "question": "What is notice period?",
+    "ground_truth": "60 days notice period"
+  },
+  {
+    "question": "What is WFH policy?",
+    "ground_truth": "2 days per week WFH allowed"
+  },
+  {
+    "question": "When is salary slip given?",
+    "ground_truth": "Salary slip on 5th of every month"
+  },
+  {
+    "question": "What is paternity leave?",
+    "ground_truth": "15 days paternity leave"
+  },
+  {
+    "question": "How many privilege leaves?",
+    "ground_truth": "15 days privilege leave per year"
+  },
+  {
+    "question": "What is leave carry forward rule?",
+    "ground_truth": "Max 15 leaves can be carried forward"
+  },
+  {
+    "question": "What is probation period?",
+    "ground_truth": "6 months probation period"
+  },
+  {
+    "question": "What is working hours?",
+    "ground_truth": "9 hours per day, 9 AM to 6 PM"
+  },
+  {
+    "question": "What is dress code?",
+    "ground_truth": "Business casual on weekdays"
+  },
+  {
+    "question": "What is travel allowance?",
+    "ground_truth": "Travel allowance as per grade"
+  },
+  {
+    "question": "What is medical insurance?",
+    "ground_truth": "5 lakh medical insurance for employee + family"
+  },
+  {
+    "question": "What is PF contribution?",
+    "ground_truth": "12% PF from basic salary"
+  },
+  {
+    "question": "How to apply for casual leave?",
+    "ground_truth": "Apply in HR portal 2 days before"
+  },
+  {
+    "question": "Can I combine sick + casual leave?",
+    "ground_truth": "Yes, with manager approval"
+  },
+  {
+    "question": "What if leave balance is zero?",
+    "ground_truth": "Leave will be loss of pay"
+  },
+  {
+    "question": "How to check leave balance?",
+    "ground_truth": "Ask HR assistant with EMP ID"
+  },
+  {
+    "question": "Can I take half day leave?",
+    "ground_truth": "Yes, half day leave allowed"
+  },
+  {
+    "question": "What is leave without pay?",
+    "ground_truth": "Leave beyond balance is LWP"
+  },
+  {
+    "question": "How to cancel leave?",
+    "ground_truth": "Cancel in portal before start date"
+  },
+  {
+    "question": "Is leave allowed in probation?",
+    "ground_truth": "Only sick leave in probation"
+  },
+  {
+    "question": "How many leaves can I take at once?",
+    "ground_truth": "Max 10 days at once"
+  },
+  {
+    "question": "What is earned leave?",
+    "ground_truth": "Earned leave 1.5 days per month"
+  },
+  {
+    "question": "Can manager reject leave?",
+    "ground_truth": "Yes, based on team availability"
+  },
+  {
+    "question": "How to apply for maternity leave?",
+    "ground_truth": "Apply 30 days before with medical certificate"
+  },
+  {
+    "question": "What documents for sick leave?",
+    "ground_truth": "Medical certificate if more than 3 days"
+  },
+  {
+    "question": "Is Saturday leave?",
+    "ground_truth": "2nd and 4th Saturday holiday"
+  },
+  {
+    "question": "What is holiday list?",
+    "ground_truth": "As per company holiday calendar"
+  },
+  {
+    "question": "How many WFH days allowed?",
+    "ground_truth": "2 days per week"
+  },
+  {
+    "question": "How to apply for WFH?",
+    "ground_truth": "Apply in portal + inform manager"
+  },
+  {
+    "question": "Is WFH allowed in probation?",
+    "ground_truth": "No WFH in probation"
+  },
+  {
+    "question": "Can I take full week WFH?",
+    "ground_truth": "Only with manager + HR approval"
+  },
+  {
+    "question": "What is WFH timing?",
+    "ground_truth": "Same as office, 9 AM to 6 PM"
+  },
+  {
+    "question": "Is internet allowance given?",
+    "ground_truth": "Rs 1000 per month internet allowance"
+  },
+  {
+    "question": "Can I WFH from other city?",
+    "ground_truth": "Yes, with prior approval"
+  },
+  {
+    "question": "What if I am sick in WFH?",
+    "ground_truth": "Mark sick leave, not WFH"
+  },
+  {
+    "question": "Is laptop provided for WFH?",
+    "ground_truth": "Yes, company laptop provided"
+  },
+  {
+    "question": "How to mark WFH attendance?",
+    "ground_truth": "Mark in HR portal by 10 AM"
+  },
+  {
+    "question": "When is salary credited?",
+    "ground_truth": "Salary credited on last working day"
+  },
+  {
+    "question": "When is appraisal?",
+    "ground_truth": "Appraisal in April every year"
+  },
+  {
+    "question": "What is notice period for resignation?",
+    "ground_truth": "60 days notice period"
+  },
+  {
+    "question": "Can I buyout notice period?",
+    "ground_truth": "Yes, with manager approval"
+  },
+  {
+    "question": "What is full and final settlement?",
+    "ground_truth": "45 days after last working day"
+  },
+  {
+    "question": "What is bonus policy?",
+    "ground_truth": "Bonus in Diwali as per performance"
+  },
+  {
+    "question": "How to get salary slip?",
+    "ground_truth": "Download from HR portal on 5th"
+  },
+  {
+    "question": "What is gratuity?",
+    "ground_truth": "Gratuity after 5 years service"
+  },
+  {
+    "question": "What is relieving letter process?",
+    "ground_truth": "Issued after F&F settlement"
+  },
+  {
+    "question": "What is exit interview?",
+    "ground_truth": "Exit interview on last working day"
+  }
+]
