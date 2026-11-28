@@ -45,6 +45,10 @@ User Question → Streamlit UI → FastAPI (/multi-agent) → Planner Agent → 
 **Insight:** Initial low relevancy was due to 30 out-of-scope questions. 
 Model correctly refused instead of hallucinating (Faithfulness stayed high). After expanding hr_policy.txt to cover all topics, Relevancy jumped to 0.95.
 
+- RAGAS Faithfulness 1.0, Relevancy 0.95
+- Gemini -> Groq Fallback Working
+- CI/CD - RAGAS <0.85 Blocks Deploy ✅
+
 ## ▶️ How to Run Locally
 ```bash
 pip install -r requirements.txt
