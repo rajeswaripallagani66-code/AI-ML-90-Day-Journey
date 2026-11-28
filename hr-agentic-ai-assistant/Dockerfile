@@ -3,4 +3,4 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
-CMD ["sh", "-c", "streamlit run DocuMind-P3/app.py --server.port $PORT --server.address 0.0.0.0"]
+CMD ["sh", "-c", "streamlit run ui.py --server.port $PORT --server.address 0.0.0.0"]
