@@ -1,12 +1,9 @@
-@"
 name: CI
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,7 +21,6 @@ jobs:
           pip install -r requirements.txt
       - name: Run Manual Evaluation
         env:
-          GEMINI_API_KEY: `${{ secrets.GEMINI_API_KEY }}
-          GROQ_API_KEY: `${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python evaluate_manual.py
-"@ | Set-Content .github\workflows\ci.yml
