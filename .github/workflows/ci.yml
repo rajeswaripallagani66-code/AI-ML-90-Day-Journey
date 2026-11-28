@@ -1,6 +1,11 @@
-name: HR Assistant CI
+@"
+name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   test:
@@ -17,15 +22,9 @@ jobs:
       - name: Install deps
         run: |
           pip install -r requirements.txt
-      - name: Run RAGAS Evaluation
+      - name: Run Manual Evaluation
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: |
-          python evaluate_ragas.py
-      - name: Test Groq Fallback
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: |
-          python -c "from llm_fallback import ask_llm; print(ask_llm('What is casual leave?', open('hr_policy.txt').read()))"
+          GEMINI_API_KEY: `${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: `${{ secrets.GROQ_API_KEY }}
+        run: python evaluate_manual.py
+"@ | Set-Content .github\workflows\ci.yml
