@@ -39,7 +39,7 @@ dataset = Dataset.from_dict({
 })
 
 # Groq LLM for evaluation - fast, no timeout
-llm = ChatGroq(model="openai/gpt-oss-20b", ...)
+llm = ChatGroq(model="openai/gpt-oss-20b", api_key=os.getenv("GROQ_API_KEY"), temperature=0)
 embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
 result = evaluate(dataset, metrics=[faithfulness, answer_relevancy], llm=llm, embeddings=embeddings, batch_size=1)
 print(result)
